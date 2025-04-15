@@ -486,6 +486,55 @@
             color: var(--text-muted);
         }
         
+        /* CTA Section */
+        .section--cta {
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: 2.5rem 0 2.5rem 0; /* Padding reducido */
+            margin: 0;
+            text-align: center;
+        }
+
+        .cta__title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .cta__description {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+        }
+
+        /* Contacto */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
         /* Responsive */
         @media (min-width: 576px) {
             .container {
@@ -494,6 +543,13 @@
             
             .header__title {
                 font-size: 2.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 2rem;
             }
         }
         
@@ -620,6 +676,29 @@
             .industries,
             .facilities {
                 gap: 1rem;
+            }
+            
+            /* Ajustes para la sección CTA en móvil */
+            .section--cta {
+                padding: 2rem 0 2rem 0; /* Padding aún más reducido en móvil */
+            }
+            
+            .cta__title {
+                font-size: 1.5rem;
+            }
+            
+            .cta__description {
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-item {
+                font-size: 0.9rem;
+            }
+            
+            .contact-icon {
+                width: 30px;
+                height: 30px;
             }
         }
         
@@ -807,24 +886,48 @@
         </div>
     </section>
     
-    <!-- About INDUAGUA Section -->
-    <section class="section section--light">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">SOBRE INDUAGUA</h2>
-                <p class="section__description">Conoce más sobre nuestra empresa y nuestro compromiso con la excelencia.</p>
-            </div>
+<!-- About INDUAGUA Section -->
+<section class="section section--light">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">SOBRE INDUAGUA</h2>
+            <p class="section__description">Conoce más sobre nuestra empresa y nuestro compromiso con la excelencia.</p>
+        </div>
+        
+        <div class="about__content">
+            <!-- Versión desktop del texto (se ocultará en móvil) -->
+            <p class="about__description desktop-only">INDUAGUA es una empresa mexicana especializada en la producción y distribución de agua de alta pureza para la industria. Con 5 años de experiencia en Nuevo León, nos hemos consolidado como un proveedor confiable para las industrias más exigentes de la región. Nuestro compromiso es garantizar la máxima calidad en cada gota de agua que producimos, utilizando tecnología de vanguardia y procesos certificados que aseguran resultados consistentes para nuestros clientes.</p>
             
-            <div class="about__content">
-                <!-- Versión desktop del texto (se ocultará en móvil) -->
-                <p class="about__description desktop-only">INDUAGUA es una empresa mexicana especializada en la producción y distribución de agua de alta pureza para la industria. Con 5 años de experiencia en Nuevo León, nos hemos consolidado como un proveedor confiable para las industrias más exigentes de la región. Nuestro compromiso es garantizar la máxima calidad en cada gota de agua que producimos, utilizando tecnología de vanguardia y procesos certificados que aseguran resultados consistentes para nuestros clientes.</p>
+            <p class="about__description desktop-only">Atendemos a empresas en Monterrey y toda el área metropolitana de Nuevo León, proporcionando soluciones personalizadas que satisfacen las necesidades específicas de cada sector industrial. Nuestra experiencia nos permite entender los requerimientos únicos de cada cliente y ofrecer el producto adecuado para cada aplicación.</p>
+            
+            <!-- Versión móvil del texto (más concisa) -->
+            <p class="about__description mobile-only">INDUAGUA es una empresa mexicana con 5 años de experiencia en Nuevo León, especializada en agua de alta pureza para la industria. Utilizamos tecnología de vanguardia y procesos certificados para garantizar máxima calidad.</p>
+            
+            <p class="about__description mobile-only">Atendemos empresas en Monterrey y área metropolitana con soluciones personalizadas para cada sector industrial.</p>
+        </div>
+    </div>
+</section>
+    
+    <!-- CTA Section -->
+    <section class="section section--cta">
+        <div class="container">
+            <h2 class="cta__title">SOLUCIONES A LA MEDIDA DE SU INDUSTRIA</h2>
+            <p class="cta__description">Contáctenos para diseñar la solución perfecta para las necesidades específicas de su empresa en Nuevo León</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <span>Av. Central 230-Int.132, Los Lermas, 67190 Guadalupe, N.L.</span>
+                </div>
                 
-                <p class="about__description desktop-only">Atendemos a empresas en Monterrey y toda el área metropolitana de Nuevo León, proporcionando soluciones personalizadas que satisfacen las necesidades específicas de cada sector industrial. Nuestra experiencia nos permite entender los requerimientos únicos de cada cliente y ofrecer el producto adecuado para cada aplicación.</p>
-                
-                <!-- Versión móvil del texto (más concisa) -->
-                <p class="about__description mobile-only">INDUAGUA es una empresa mexicana con 5 años de experiencia en Nuevo León, especializada en agua de alta pureza para la industria. Utilizamos tecnología de vanguardia y procesos certificados para garantizar máxima calidad.</p>
-                
-                <p class="about__description mobile-only">Atendemos empresas en Monterrey y área metropolitana con soluciones personalizadas para cada sector industrial.</p>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <span>81 1299 3935</span>
+                </div>
             </div>
         </div>
     </section>
@@ -842,7 +945,7 @@
             document.body.style.paddingBottom = "0";
             document.body.style.marginBottom = "0";
             
-                         // Detectar si es móvil y ajustar tamaño
+            // Detectar si es móvil y ajustar tamaño
             var isMobile = window.innerWidth < 768;
             var optimalHeight = isMobile ? 2000 : 2600; // Reducido para móvil
             
@@ -875,5 +978,4 @@
         setInterval(fixFrameSize, 1000);
     </script>
 </body>
-</html>
-   
+</html>   
