@@ -148,7 +148,7 @@
         
         .section__title {
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: a1rem;
             position: relative;
             display: inline-block;
             padding-bottom: 0.75rem;
@@ -461,8 +461,9 @@
             text-align: center;
             background: var(--gradient-1);
             color: var(--white);
-            padding: 4rem 0 2rem 0;
-            margin: 0;
+            padding: 4rem 0 0 0; /* Eliminar padding inferior */
+            margin: 0 0 0 0 !important; /* Eliminar margen inferior */
+            border-bottom: 0 !important;
         }
         
         .cta__title {
@@ -485,6 +486,7 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
+            margin-bottom: 2rem;
         }
         
         .contact-item {
@@ -522,7 +524,7 @@
             transition: all 0.2s ease-in-out;
             text-decoration: none;
             cursor: pointer;
-            margin: 1.5rem 0 0 0;
+            margin: 0 0 0 0 !important; /* Eliminar margen inferior */
         }
         
         .btn--primary {
@@ -535,6 +537,8 @@
             color: var(--primary);
             background-color: var(--white);
             border-color: var(--white);
+            margin-top: 1.5rem;
+            margin-bottom: 0 !important; /* Eliminar margen inferior */
         }
         
         .btn--outline-light:hover {
@@ -623,6 +627,26 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        
+        /* Eliminar espacio blanco entre secciones */
+        .cta {
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Asegurar que no haya espacios entre elementos */
+        body > *:last-child {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        /* Eliminar espacio después del botón de solicitar información */
+        .cta .btn {
+            margin-bottom: 0 !important;
+            padding-bottom: 1.5rem;
         }
     </style>
 </head>
@@ -821,7 +845,6 @@
                     </div>
                     <span>Av. Central 230-Int.132, Los Lermas, 67190 Guadalupe, N.L.</span>
                 </div>
-                
                 <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-phone-alt"></i>
@@ -830,7 +853,7 @@
                 </div>
             </div>
             
-            <a href="#" class="btn btn--outline-light">SOLICITAR INFORMACIÓN</a>
+            <a href="#" class="btn btn--outline-light" style="margin-top: 1.5rem; margin-bottom: 0; padding-bottom: 1.5rem;">SOLICITAR INFORMACIÓN</a>
         </div>
     </section>
     
@@ -840,13 +863,16 @@
         function fixFrameSize() {
             // Forzar redimensionamiento para eliminar espacios
             document.body.style.minHeight = '100vh';
+            document.body.style.paddingBottom = "0";
+            document.body.style.marginBottom = "0";
+            
+            // Asegurar que la sección CTA no tenga espacio inferior
+            if (document.querySelector('.cta')) {
+                document.querySelector('.cta').style.paddingBottom = "0";
+                document.querySelector('.cta').style.marginBottom = "0";
+            }
             
             // Comunicar tamaño exacto al contenedor padre (Wix)
-            var height = Math.max(
-                document.body.scrollHeight,
-                document.body.offsetHeight,
-                document.documentElement.client
-                  // Comunicar tamaño exacto al contenedor padre (Wix)
             var height = Math.max(
                 document.body.scrollHeight,
                 document.body.offsetHeight,
