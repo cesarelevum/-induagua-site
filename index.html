@@ -7,12 +7,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Ocultar barra de desplazamiento pero mantener funcionalidad */
+        html {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        html::-webkit-scrollbar {
+            display: none; /* Chrome, Safari y Opera */
+        }
+
+        body {
+            overflow-y: auto !important;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
         /* Reset completo para evitar espacios no deseados */
         html, body {
             margin: 0;
             padding: 0;
             border: 0;
-            overflow-x: hidden;
             width: 100%;
             height: auto;
             background-color: #ffffff;
@@ -98,6 +119,15 @@
             max-width: 1320px;
         }
         
+        /* Clases para mostrar/ocultar contenido según dispositivo */
+        .desktop-only {
+            display: block;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+        
         /* Header / Hero */
         .header {
             background: var(--gradient-1);
@@ -148,7 +178,7 @@
         
         .section__title {
             font-size: 2rem;
-            margin-bottom: a1rem;
+            margin-bottom: 1rem;
             position: relative;
             display: inline-block;
             padding-bottom: 0.75rem;
@@ -456,97 +486,6 @@
             color: var(--text-muted);
         }
         
-        /* CTA Section */
-        .cta {
-            text-align: center;
-            background: var(--gradient-1);
-            color: var(--white);
-            padding: 4rem 0 0 0; /* Eliminar padding inferior */
-            margin: 0 0 0 0 !important; /* Eliminar margen inferior */
-            border-bottom: 0 !important;
-        }
-        
-        .cta__title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-        
-        .cta__description {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
-        /* Contacto */
-        .contact-info {
-            margin-top: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--white);
-            font-size: 1.1rem;
-        }
-        
-        .contact-icon {
-            width: 36px;
-            height: 36px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            font-weight: 600;
-            color: var(--text-dark);
-            text-align: center;
-            vertical-align: middle;
-            user-select: none;
-            background-color: var(--white);
-            border: 2px solid transparent;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: 50px;
-            transition: all 0.2s ease-in-out;
-            text-decoration: none;
-            cursor: pointer;
-            margin: 0 0 0 0 !important; /* Eliminar margen inferior */
-        }
-        
-        .btn--primary {
-            color: var(--white);
-            background-color: var(--primary);
-            border-color: var(--primary);
-        }
-        
-        .btn--outline-light {
-            color: var(--primary);
-            background-color: var(--white);
-            border-color: var(--white);
-            margin-top: 1.5rem;
-            margin-bottom: 0 !important; /* Eliminar margen inferior */
-        }
-        
-        .btn--outline-light:hover {
-            color: var(--white);
-            background-color: transparent;
-            border-color: var(--white);
-        }
-        
         /* Responsive */
         @media (min-width: 576px) {
             .container {
@@ -555,13 +494,6 @@
             
             .header__title {
                 font-size: 2.5rem;
-            }
-            
-            .contact-info {
-                flex-direction: row;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 2rem;
             }
         }
         
@@ -613,6 +545,84 @@
             }
         }
         
+        /* Ajustes específicos para móvil */
+        @media (max-width: 767px) {
+            .desktop-only {
+                display: none;
+            }
+            
+            .mobile-only {
+                display: block;
+            }
+            
+            /* Reducir espacio en sección About */
+            .section--light .section__header {
+                margin-bottom: 1.5rem; /* Reducido de 3rem */
+            }
+            
+            .about__content {
+                max-width: 100%;
+            }
+            
+            .about__description {
+                font-size: 0.95rem; /* Texto ligeramente más pequeño */
+                margin-bottom: 1rem; /* Reducido de 2rem */
+                line-height: 1.5;
+            }
+            
+            /* Hacer la sección completa más compacta */
+            .section {
+                padding: 2.5rem 0; /* Reducido de 4rem */
+            }
+            
+            /* Título más pequeño */
+            .section__title {
+                font-size: 1.5rem; /* Reducido de 2rem */
+            }
+            
+            /* Descripción más compacta */
+            .section__description {
+                font-size: 0.95rem; /* Reducido de 1.1rem */
+            }
+            
+            /* Cards más compactas */
+            .facility-card__content,
+            .water-card__body,
+            .industry-card__body {
+                padding: 1rem;
+            }
+            
+            .facility-card__title, 
+            .water-card__title,
+            .industry-card__title {
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .facility-card__description,
+            .water-card__description,
+            .industry-card__description {
+                font-size: 0.9rem;
+            }
+            
+            .benefits__title {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .benefits__item {
+                font-size: 0.85rem;
+                margin-bottom: 0.4rem;
+            }
+            
+            /* Espaciado más compacto en general */
+            .water-types,
+            .industries,
+            .facilities {
+                gap: 1rem;
+            }
+        }
+        
         /* Fix para espacios no deseados */
         section:last-of-type {
             margin-bottom: 0 !important;
@@ -623,30 +633,11 @@
         body {
             margin: 0 !important;  
             padding: 0 !important;
-            overflow-y: visible !important;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             padding-bottom: 0 !important;
             margin-bottom: 0 !important;
-        }
-        
-        /* Eliminar espacio blanco entre secciones */
-        .cta {
-            padding-bottom: 0 !important;
-            margin-bottom: 0 !important;
-        }
-
-        /* Asegurar que no haya espacios entre elementos */
-        body > *:last-child {
-            margin-bottom: 0 !important;
-            padding-bottom: 0 !important;
-        }
-
-        /* Eliminar espacio después del botón de solicitar información */
-        .cta .btn {
-            margin-bottom: 0 !important;
-            padding-bottom: 1.5rem;
         }
     </style>
 </head>
@@ -821,64 +812,50 @@
         <div class="container">
             <div class="section__header">
                 <h2 class="section__title">SOBRE INDUAGUA</h2>
-                <p class="section__description">Conoce más sobre nuestra empresa y nuestro compromiso con la excelencia y calidad.</p>
+                <p class="section__description">Conoce más sobre nuestra empresa y nuestro compromiso con la excelencia.</p>
             </div>
             
             <div class="about__content">
-                <p class="about__description">INDUAGUA es una empresa mexicana especializada en la producción y distribución de agua de alta pureza para la industria. Con 5 años de experiencia en Nuevo León, nos hemos consolidado como un proveedor confiable para las industrias más exigentes de la región. Nuestro compromiso es garantizar la máxima calidad en cada gota de agua que producimos, utilizando tecnología de vanguardia y procesos certificados que aseguran resultados consistentes para nuestros clientes.</p>
+                <!-- Versión desktop del texto (se ocultará en móvil) -->
+                <p class="about__description desktop-only">INDUAGUA es una empresa mexicana especializada en la producción y distribución de agua de alta pureza para la industria. Con 5 años de experiencia en Nuevo León, nos hemos consolidado como un proveedor confiable para las industrias más exigentes de la región. Nuestro compromiso es garantizar la máxima calidad en cada gota de agua que producimos, utilizando tecnología de vanguardia y procesos certificados que aseguran resultados consistentes para nuestros clientes.</p>
                 
-                <p class="about__description">Atendemos a empresas en Monterrey y toda el área metropolitana de Nuevo León, proporcionando soluciones personalizadas que satisfacen las necesidades específicas de cada sector industrial. Nuestra experiencia nos permite entender los requerimientos únicos de cada cliente y ofrecer el producto adecuado para cada aplicación.</p>
+                <p class="about__description desktop-only">Atendemos a empresas en Monterrey y toda el área metropolitana de Nuevo León, proporcionando soluciones personalizadas que satisfacen las necesidades específicas de cada sector industrial. Nuestra experiencia nos permite entender los requerimientos únicos de cada cliente y ofrecer el producto adecuado para cada aplicación.</p>
+                
+                <!-- Versión móvil del texto (más concisa) -->
+                <p class="about__description mobile-only">INDUAGUA es una empresa mexicana con 5 años de experiencia en Nuevo León, especializada en agua de alta pureza para la industria. Utilizamos tecnología de vanguardia y procesos certificados para garantizar máxima calidad.</p>
+                
+                <p class="about__description mobile-only">Atendemos empresas en Monterrey y área metropolitana con soluciones personalizadas para cada sector industrial.</p>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2 class="cta__title">SOLUCIONES A LA MEDIDA DE SU INDUSTRIA</h2>
-            <p class="cta__description">Contáctenos para diseñar la solución perfecta para las necesidades específicas de su empresa en Nuevo León</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <span>Av. Central 230-Int.132, Los Lermas, 67190 Guadalupe, N.L.</span>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <span>81 1299 3935</span>
-                </div>
-            </div>
-            
-            <a href="#" class="btn btn--outline-light" style="margin-top: 1.5rem; margin-bottom: 0; padding-bottom: 1.5rem;">SOLICITAR INFORMACIÓN</a>
-        </div>
-    </section>
-    
     <!-- Script para comunicarse con el iframe de Wix -->
     <script>
         // Función mejorada para comunicación con el iframe de Wix
         function fixFrameSize() {
+            // Ocultar barra de desplazamiento
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+            
             // Forzar redimensionamiento para eliminar espacios
             document.body.style.minHeight = '100vh';
             document.body.style.paddingBottom = "0";
             document.body.style.marginBottom = "0";
             
-            // Asegurar que la sección CTA no tenga espacio inferior
-            if (document.querySelector('.cta')) {
-                document.querySelector('.cta').style.paddingBottom = "0";
-                document.querySelector('.cta').style.marginBottom = "0";
-            }
+                         // Detectar si es móvil y ajustar tamaño
+            var isMobile = window.innerWidth < 768;
+            var optimalHeight = isMobile ? 2000 : 2600; // Reducido para móvil
             
             // Comunicar tamaño exacto al contenedor padre (Wix)
-            var height = Math.max(
-                document.body.scrollHeight,
-                document.body.offsetHeight,
-                document.documentElement.clientHeight,
-                document.documentElement.scrollHeight,
-                document.documentElement.offsetHeight
+            var height = Math.min(
+                optimalHeight,
+                Math.max(
+                    document.body.scrollHeight,
+                    document.body.offsetHeight,
+                    document.documentElement.clientHeight,
+                    document.documentElement.scrollHeight,
+                    document.documentElement.offsetHeight
+                )
             );
             
             if (window.parent) {
@@ -887,11 +864,6 @@
                     width: '100%',
                     overflow: 'hidden'
                 }, '*');
-            }
-            
-            // Ajuste para dispositivos móviles
-            if (window.innerWidth < 768) {
-                document.body.style.overflow = 'hidden';
             }
         }
         
@@ -904,3 +876,4 @@
     </script>
 </body>
 </html>
+   
