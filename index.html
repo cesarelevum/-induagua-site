@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos base y variables */
+        /* Reset completo para evitar interferencias con Wix */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Variables */
         :root {
             --primary: #1e4486;
             --primary-light: #2a5fbd;
@@ -35,47 +42,801 @@
             --transition: all 0.3s ease;
         }
         
-        /* Reset completo para evitar problemas con iframes */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        /* Estilos para iFrame */
         html, body {
             width: 100%;
-            height: auto;
-            border: none;
-            overflow-x: hidden;
-            overflow-y: hidden; /* Importante para prevenir scroll doble */
-            padding: 0;
-            margin: 0;
             font-family: 'Poppins', sans-serif;
             font-size: 16px;
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--gray-100);
+            overflow-x: hidden;
         }
         
-        /* Resto de estilos igual que antes... */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
         
-        /* Último estilo para sección CTA */
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 100%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1320px;
+        }
+        
+        /* Header / Hero */
+        .header {
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .header__title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+        
+        .header__subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 0;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .about__content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about__title {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.75rem;
+        }
+        
+        .about__title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary);
+            border-radius: 1.5px;
+        }
+        
+        .about__description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .section--light {
+            background-color: var(--white);
+        }
+        
+        .section--gray {
+            background-color: var(--gray-100);
+        }
+        
+        .section__header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section__title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.75rem;
+            color: var(--primary);
+        }
+        
+        .section__title::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section__description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-muted);
+        }
+        
+        /* Facility Cards */
+        .facilities {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .facility-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .facility-card__image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .facility-card__content {
+            padding: 1.5rem;
+        }
+        
+        .facility-card__title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .facility-card__title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            border-radius: 1.5px;
+        }
+        
+        .facility-card__description {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        
+        /* Water Types */
+        .water-types {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .water-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .water-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .water-card__header {
+            background: var(--gradient-1);
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .water-card:nth-child(2) .water-card__header {
+            background: var(--gradient-2);
+        }
+        
+        .water-card:nth-child(3) .water-card__header {
+            background: var(--gradient-3);
+        }
+        
+        .water-card__icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .water-card:nth-child(2) .water-card__icon {
+            color: var(--secondary);
+        }
+        
+        .water-card:nth-child(3) .water-card__icon {
+            color: var(--success);
+        }
+        
+        .water-card__title {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin: 0;
+        }
+        
+        .water-card__body {
+            padding: 1.5rem;
+        }
+        
+        .water-card__description {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .benefits__title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .benefits__list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .benefits__item {
+            padding-left: 1.75rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        
+        .benefits__item::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        /* Industries */
+        .industries {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .industry-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .industry-card__header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .industry-card:nth-child(2) .industry-card__header {
+            background: var(--secondary);
+        }
+        
+        .industry-card:nth-child(3) .industry-card__header {
+            background: var(--accent);
+        }
+        
+        .industry-card:nth-child(4) .industry-card__header {
+            background: var(--success);
+        }
+        
+        .industry-card__icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .industry-card:nth-child(1) .industry-card__icon {
+            color: var(--primary);
+        }
+        
+        .industry-card:nth-child(2) .industry-card__icon {
+            color: var(--secondary);
+        }
+        
+        .industry-card:nth-child(3) .industry-card__icon {
+            color: var(--accent);
+        }
+        
+        .industry-card:nth-child(4) .industry-card__icon {
+            color: var(--success);
+        }
+        
+        .industry-card__title {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin: 0;
+        }
+        
+        .industry-card__body {
+            padding: 1.5rem;
+        }
+        
+        .industry-card__description {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        
+        /* CTA Section */
         .cta {
             text-align: center;
             background: var(--gradient-1);
             color: var(--white);
-            padding: 4rem 0 0 0; /* Eliminar padding inferior */
-            margin-bottom: 0;
+            padding: 4rem 0 2rem 0;
         }
         
-        /* El resto del CSS se mantiene igual */
+        .cta__title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .cta__description {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Contacto */
+        .contact-info {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+        
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            background-color: var(--white);
+            border: 2px solid transparent;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 50px;
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .btn--primary {
+            color: var(--white);
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn--outline-light {
+            color: var(--primary);
+            background-color: var(--white);
+            border-color: var(--white);
+        }
+        
+        .btn--outline-light:hover {
+            color: var(--white);
+            background-color: transparent;
+            border-color: var(--white);
+        }
+        
+        /* Responsive */
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+            
+            .header__title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            .header__title {
+                font-size: 2.75rem;
+            }
+            
+            .facilities {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .water-types {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .industries {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+            
+            .header__title {
+                font-size: 3rem;
+            }
+            
+            .industries {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+        
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1320px;
+            }
+        }
+        
+        /* Fix para iFrame */
+        body {
+            margin: 0 !important;  
+            padding: 0 !important;
+            overflow-y: auto !important;
+        }
+        
+        section:last-child {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
     </style>
 </head>
 <body>
-    <!-- Todo el contenido HTML igual que antes... pero asegúrate de que el último elemento no tenga márgenes o paddings inferiores -->
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">AGUA ESPECIALIZADA PARA INDUSTRIA EN NUEVO LEÓN</h1>
+            <p class="header__subtitle">Proveedor líder en agua destilada, desionizada y desmineralizada para procesos industriales en Monterrey y área metropolitana</p>
+        </div>
+    </header>
+
+    <!-- Infraestructura Section -->
+    <section class="section section--gray">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">NUESTRA INFRAESTRUCTURA</h2>
+                <p class="section__description">Contamos con instalaciones de última generación y equipos especializados para garantizar la máxima calidad en cada litro de agua que producimos.</p>
+            </div>
+            
+            <div class="facilities">
+                <div class="facility-card">
+                    <img src="https://page.genspark.site/v1/base64_upload/9aece966ef0604a654d0a3885436edaa" alt="Sistema de filtración avanzada INDUAGUA Nuevo León" class="facility-card__image">
+                    <div class="facility-card__content">
+                        <h3 class="facility-card__title">Sistema de filtración avanzada</h3>
+                        <p class="facility-card__description">Nuestro sistema de filtración utiliza tecnología de vanguardia para eliminar impurezas y garantizar la máxima pureza del producto final.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-card">
+                    <img src="https://page.genspark.site/v1/base64_upload/968398d062eb311cddfc857169303419" alt="Sistema de ósmosis inversa INDUAGUA Nuevo León" class="facility-card__image">
+                    <div class="facility-card__content">
+                        <h3 class="facility-card__title">Sistema de ósmosis inversa</h3>
+                        <p class="facility-card__description">Equipos de alta capacidad que procesan más de 20,000 litros de agua de alta pureza diariamente, con niveles de conductividad extremadamente bajos para mayor precisión.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tipos de Agua Section -->
+    <section class="section section--light">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">TIPOS DE AGUA ESPECIALIZADA</h2>
+                <p class="section__description">Ofrecemos diferentes soluciones de agua especializada según las necesidades específicas de cada industria y aplicación.</p>
+            </div>
+            
+            <div class="water-types">
+                <div class="water-card">
+                    <div class="water-card__header">
+                        <div class="water-card__icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="water-card__title">Agua Desmineralizada</h3>
+                    </div>
+                    <div class="water-card__body">
+                        <p class="water-card__description">Agua libre de sales y minerales disueltos, ideal para procesos industriales que requieren prevenir corrosión en equipos sensibles.</p>
+                        
+                        <h4 class="benefits__title">Beneficios:</h4>
+                        <ul class="benefits__list">
+                            <li class="benefits__item">Previene la formación de incrustaciones</li>
+                            <li class="benefits__item">Reduce el mantenimiento de equipos</li>
+                            <li class="benefits__item">Aumenta la vida útil de maquinaria</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="water-card">
+                    <div class="water-card__header">
+                        <div class="water-card__icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="water-card__title">Agua Desionizada</h3>
+                    </div>
+                    <div class="water-card__body">
+                        <p class="water-card__description">Agua tratada mediante intercambio iónico para eliminar iones cargados, garantizando máxima pureza para aplicaciones sensibles.</p>
+                        
+                        <h4 class="benefits__title">Beneficios:</h4>
+                        <ul class="benefits__list">
+                            <li class="benefits__item">Mayor pureza química para procesos precisos</li>
+                            <li class="benefits__item">Previene interferencias en análisis</li>
+                            <li class="benefits__item">Ideal para electrónica y farmacéutica</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="water-card">
+                    <div class="water-card__header">
+                        <div class="water-card__icon">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3 class="water-card__title">Agua Destilada</h3>
+                    </div>
+                    <div class="water-card__body">
+                        <p class="water-card__description">Agua purificada mediante destilación que elimina impurezas y contaminantes, alcanzando niveles óptimos de pureza.</p>
+                        
+                        <h4 class="benefits__title">Beneficios:</h4>
+                        <ul class="benefits__list">
+                            <li class="benefits__item">Ideal para equipos médicos y laboratorios</li>
+                            <li class="benefits__item">Evita residuos en manufacturas sensibles</li>
+                            <li class="benefits__item">Garantiza resultados consistentes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industrias Section -->
+    <section class="section section--gray">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">INDUSTRIAS QUE ATENDEMOS</h2>
+                <p class="section__description">Servimos a empresas líderes en diversos sectores industriales para los que una fuente confiable de agua especializada es fundamental en Nuevo León y todo México.</p>
+            </div>
+            
+            <div class="industries">
+                <div class="industry-card">
+                    <div class="industry-card__header">
+                        <div class="industry-card__icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 class="industry-card__title">Automotriz</h3>
+                    </div>
+                    <div class="industry-card__body">
+                        <p class="industry-card__description">Agua especializada para procesos de pintura, enfriamiento de maquinaria y operaciones de acabado. Reducimos el riesgo de corrosión y aumentamos la vida útil de equipos.</p>
+                    </div>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-card__header">
+                        <div class="industry-card__icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3 class="industry-card__title">Farmacéutica</h3>
+                    </div>
+                    <div class="industry-card__body">
+                        <p class="industry-card__description">Soluciones que cumplen con los más altos estándares sanitarios para fabricación de medicamentos, limpieza de equipos y procesos que requieren agua de alta pureza.</p>
+                    </div>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-card__header">
+                        <div class="industry-card__icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="industry-card__title">Electrónica</h3>
+                    </div>
+                    <div class="industry-card__body">
+                        <p class="industry-card__description">Agua ultrapura para la fabricación de componentes electrónicos sensibles, circuitos integrados y procesos donde incluso mínimas impurezas pueden afectar la calidad final.</p>
+                    </div>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-card__header">
+                        <div class="industry-card__icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="industry-card__title">Química</h3>
+                    </div>
+                    <div class="industry-card__body">
+                        <p class="industry-card__description">Suministro especializado para formulaciones químicas, procesos de laboratorio y operaciones industriales que requieren agua de composición controlada para resultados consistentes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <!-- En la última sección (CTA) modifica el último elemento para que no tenga margen inferior -->
-    <a href="#" class="btn btn--outline-light" style="margin-top: 1.5rem; margin-bottom: 0;">SOLICITAR INFORMACIÓN</a>
+    <!-- About INDUAGUA Section -->
+    <section class="section section--light">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">SOBRE INDUAGUA</h2>
+                <p class="section__description">Conoce más sobre nuestra empresa y nuestro compromiso con la excelencia y calidad.</p>
+            </div>
+            
+            <div class="about__content">
+                <p class="about__description">INDUAGUA es una empresa mexicana especializada en la producción y distribución de agua de alta pureza para la industria. Con 5 años de experiencia en Nuevo León, nos hemos consolidado como un proveedor confiable para las industrias más exigentes de la región. Nuestro compromiso es garantizar la máxima calidad en cada gota de agua que producimos, utilizando tecnología de vanguardia y procesos certificados que aseguran resultados consistentes para nuestros clientes.</p>
+                
+                <p class="about__description">Atendemos a empresas en Monterrey y toda el área metropolitana de Nuevo León, proporcionando soluciones personalizadas que satisfacen las necesidades específicas de cada sector industrial. Nuestra experiencia nos permite entender los requerimientos únicos de cada cliente y ofrecer el producto adecuado para cada aplicación.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta__title">SOLUCIONES A LA MEDIDA DE SU INDUSTRIA</h2>
+            <p class="cta__description">Contáctenos para diseñar la solución perfecta para las necesidades específicas de su empresa en Nuevo León</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <span>Av. Central 230-Int.132, Los Lermas, 67190 Guadalupe, N.L.</span>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <span>81 1299 3935</span>
+                </div>
+            </div>
+            
+            <a href="#" class="btn btn--outline-light" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">SOLICITAR INFORMACIÓN</a>
+        </div>
+    </section>
+    
+    <!-- Script para comunicarse con el iframe de Wix -->
+    <script>
+        // Función para notificar a Wix sobre el tamaño del contenido
+        function notifyHeightToParent() {
+            var height = document.body.scrollHeight;
+            var width = document.body.scrollWidth;
+            
+            // Intenta comunicarse con el padre (Wix)
+            if (window.parent) {
+                window.parent.postMessage({
+                    height: height,
+                    width: width
+                }, '*');
+            }
+        }
+        
+        // Ejecutar cuando el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Notificar altura inicial
+            notifyHeightToParent();
+            
+            // Configurar para notificar altura si cambia el contenido
+            window.addEventListener('resize', notifyHeightToParent);
+            
+            // También podemos forzar el tamaño del iframe directamente
+            if (window.frameElement) {
+                window.frameElement.style.overflow = 'hidden';
+                window.frameElement.style.height = document.body.scrollHeight + 'px';
+                window.frameElement.style.border = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
