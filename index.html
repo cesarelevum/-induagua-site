@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>INDUAGUA - Agua Especializada para Industria en Nuevo León</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -508,7 +509,7 @@
             opacity: 0.9;
         }
 
-        /* Contacto */
+        /* Contacto - Estilo mejorado con fondo para mejor visibilidad */
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -522,6 +523,10 @@
             gap: 0.75rem;
             color: var(--white);
             font-size: 1.1rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            margin: 0.25rem 0;
         }
 
         .contact-icon {
@@ -549,7 +554,7 @@
                 flex-direction: row;
                 justify-content: center;
                 flex-wrap: wrap;
-                gap: 2rem;
+                gap: 1rem;
             }
         }
         
@@ -694,11 +699,26 @@
             
             .contact-item {
                 font-size: 0.9rem;
+                width: 100%;
+                max-width: 320px;
             }
             
             .contact-icon {
                 width: 30px;
                 height: 30px;
+            }
+            
+            /* Asegurar que el contenido se ajuste al ancho en móvil */
+            body {
+                width: 100% !important;
+                min-width: 320px !important;
+                overflow-x: hidden !important;
+            }
+            
+            .container {
+                width: 100% !important;
+                padding-left: 10px !important;
+                padding-right: 10px !important;
             }
         }
         
@@ -733,7 +753,7 @@
     <section class="section section--gray">
         <div class="container">
             <div class="section__header">
-                <h2 class="section__title">NUESTRA INFRAESTRUCTURA</h2>
+                <h2 class="section__title">PARTE DE NUESTRA INFRAESTRUCTURA</h2>
                 <p class="section__description">Contamos con instalaciones de última generación y equipos especializados para garantizar la máxima calidad en cada litro de agua que producimos.</p>
             </div>
             
@@ -750,7 +770,7 @@
                     <img src="https://page.genspark.site/v1/base64_upload/968398d062eb311cddfc857169303419" alt="Sistema de ósmosis inversa INDUAGUA Nuevo León" class="facility-card__image">
                     <div class="facility-card__content">
                         <h3 class="facility-card__title">Sistema de ósmosis inversa</h3>
-                        <p class="facility-card__description">Equipos de alta capacidad que procesan más de 20,000 litros de agua de alta pureza diariamente, con niveles de conductividad extremadamente bajos para mayor precisión.</p>
+                        <p class="facility-card__description">Equipos de alta capacidad que procesan más de 100,000 litros de agua de alta pureza diariamente, con niveles de conductividad extremadamente bajos para mayor precisión.</p>
                     </div>
                 </div>
             </div>
@@ -870,9 +890,7 @@
                         <p class="industry-card__description">Agua ultrapura para la fabricación de componentes electrónicos sensibles, circuitos integrados y procesos donde incluso mínimas impurezas pueden afectar la calidad final.</p>
                     </div>
                 </div>
-                
-                <div class="industry-card">
-                    <div class="industry-card__header">
+                <div class="industry-card__header">
                         <div class="industry-card__icon">
                             <i class="fas fa-flask"></i>
                         </div>
@@ -886,27 +904,27 @@
         </div>
     </section>
     
-<!-- About INDUAGUA Section -->
-<section class="section section--light">
-    <div class="container">
-        <div class="section__header">
-            <h2 class="section__title">SOBRE INDUAGUA</h2>
-            <p class="section__description">Conoce más sobre nuestra empresa y nuestro compromiso con la excelencia.</p>
+    <!-- About INDUAGUA Section -->
+    <section class="section section--light">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">SOBRE INDUAGUA</h2>
+                <p class="section__description">Conoce más sobre nuestra empresa y nuestro compromiso con la excelencia.</p>
+            </div>
+            
+            <div class="about__content">
+                <!-- Versión desktop del texto (se ocultará en móvil) -->
+                <p class="about__description desktop-only">INDUAGUA es una empresa mexicana especializada en la producción y distribución de agua de alta pureza para la industria. Con 5 años de experiencia en Nuevo León, nos hemos consolidado como un proveedor confiable para las industrias más exigentes de la región. Nuestro compromiso es garantizar la máxima calidad en cada gota de agua que producimos, utilizando tecnología de vanguardia y procesos certificados que aseguran resultados consistentes para nuestros clientes.</p>
+                
+                <p class="about__description desktop-only">Atendemos a empresas en Monterrey y toda el área metropolitana de Nuevo León, proporcionando soluciones personalizadas que satisfacen las necesidades específicas de cada sector industrial. Nuestra experiencia nos permite entender los requerimientos únicos de cada cliente y ofrecer el producto adecuado para cada aplicación.</p>
+                
+                <!-- Versión móvil del texto (más concisa) -->
+                <p class="about__description mobile-only">INDUAGUA es una empresa mexicana con 5 años de experiencia en Nuevo León, especializada en agua de alta pureza para la industria. Utilizamos tecnología de vanguardia y procesos certificados para garantizar máxima calidad.</p>
+                
+                <p class="about__description mobile-only">Atendemos empresas en Monterrey y área metropolitana con soluciones personalizadas para cada sector industrial.</p>
+            </div>
         </div>
-        
-        <div class="about__content">
-            <!-- Versión desktop del texto (se ocultará en móvil) -->
-            <p class="about__description desktop-only">INDUAGUA es una empresa mexicana especializada en la producción y distribución de agua de alta pureza para la industria. Con 5 años de experiencia en Nuevo León, nos hemos consolidado como un proveedor confiable para las industrias más exigentes de la región. Nuestro compromiso es garantizar la máxima calidad en cada gota de agua que producimos, utilizando tecnología de vanguardia y procesos certificados que aseguran resultados consistentes para nuestros clientes.</p>
-            
-            <p class="about__description desktop-only">Atendemos a empresas en Monterrey y toda el área metropolitana de Nuevo León, proporcionando soluciones personalizadas que satisfacen las necesidades específicas de cada sector industrial. Nuestra experiencia nos permite entender los requerimientos únicos de cada cliente y ofrecer el producto adecuado para cada aplicación.</p>
-            
-            <!-- Versión móvil del texto (más concisa) -->
-            <p class="about__description mobile-only">INDUAGUA es una empresa mexicana con 5 años de experiencia en Nuevo León, especializada en agua de alta pureza para la industria. Utilizamos tecnología de vanguardia y procesos certificados para garantizar máxima calidad.</p>
-            
-            <p class="about__description mobile-only">Atendemos empresas en Monterrey y área metropolitana con soluciones personalizadas para cada sector industrial.</p>
-        </div>
-    </div>
-</section>
+    </section>
     
     <!-- CTA Section -->
     <section class="section section--cta">
@@ -928,39 +946,31 @@
                     </div>
                     <span>81 1299 3935</span>
                 </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <span>cesar.mireles@ultradef.mx</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Script para comunicarse con el iframe de Wix -->
     <script>
-        // Función mejorada para comunicación con el iframe de Wix
         function fixFrameSize() {
-            // Ocultar barra de desplazamiento
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-            
-            // Forzar redimensionamiento para eliminar espacios
-            document.body.style.minHeight = '100vh';
-            document.body.style.paddingBottom = "0";
-            document.body.style.marginBottom = "0";
-            
-            // Detectar si es móvil y ajustar tamaño
+            // Detectar si es móvil
             var isMobile = window.innerWidth < 768;
-            var optimalHeight = isMobile ? 2000 : 2600; // Reducido para móvil
             
-            // Comunicar tamaño exacto al contenedor padre (Wix)
-            var height = Math.min(
-                optimalHeight,
-                Math.max(
-                    document.body.scrollHeight,
-                    document.body.offsetHeight,
-                    document.documentElement.clientHeight,
-                    document.documentElement.scrollHeight,
-                    document.documentElement.offsetHeight
-                )
-            );
+            // Altura fija más pequeña para móvil
+            var mobileHeight = 1800; // Ajusta este valor según sea necesario
+            var desktopHeight = 2600;
             
+            // Usar altura fija para móviles en lugar de cálculos complejos
+            var height = isMobile ? mobileHeight : desktopHeight;
+            
+            // Comunicar dimensiones al contenedor padre (Wix)
             if (window.parent) {
                 window.parent.postMessage({
                     height: height,
@@ -969,8 +979,8 @@
                 }, '*');
             }
         }
-        
-        // Ejecutar en carga y después de cualquier cambio de tamaño
+
+        // Ejecutar la función inmediatamente y cuando cambie el tamaño
         window.addEventListener('load', fixFrameSize);
         window.addEventListener('resize', fixFrameSize);
         
@@ -978,4 +988,4 @@
         setInterval(fixFrameSize, 1000);
     </script>
 </body>
-</html>   
+</html>
